@@ -13,7 +13,7 @@ namespace MvcCharacter.Data
         {
             context.Database.EnsureCreated();
 
-            if (context.Characters.Any())
+            if (context.Character.Any())
             {
                 return;
             }
@@ -27,7 +27,7 @@ namespace MvcCharacter.Data
             };
             foreach (Character c in characters)
             {
-                context.Characters.Add(c);
+                context.Character.Add(c);
             }
             context.SaveChanges();
 

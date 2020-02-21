@@ -14,7 +14,7 @@ namespace MvcCharacter.Data
         {
         }
 
-        public DbSet<Character> Characters { get; set; }
+        public DbSet<Character> Character { get; set; }
         public DbSet<SpellBook> SpellBooks { get; set; }
         public DbSet<Spell> Spells { get; set; }
 

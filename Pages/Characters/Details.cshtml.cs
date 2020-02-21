@@ -28,7 +28,12 @@ namespace MvcCharacter
                 return NotFound();
             }
 
-            Character = await _context.Character.FirstOrDefaultAsync(m => m.ID == id);
+            //Character = await _context.Character.FirstOrDefaultAsync(m => m.ID == id); replaced with await/async
+            Character = await _context.Character
+                .Include(s => s.SpellBook)
+                .ThenInclude(e => e.Spell)
+                .AsNoTracking()
+                .FirstOrDefaultAsync(m => m.ID == id);
 
             if (Character == null)
             {
